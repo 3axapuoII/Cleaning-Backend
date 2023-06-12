@@ -1,5 +1,7 @@
 const userService = require("../service/UserService");
 const userRepository = require("../repositories/UserRepository");
+const jwt = require('jwt-simple');
+const AuthConfig = require("../config/AuthConfig.json");
 
 class UserController {      
     async GetAll(req, res) {
@@ -9,6 +11,13 @@ class UserController {
     async GetById(req, res) {
         res.setHeader('Access-Control-Allow-Origin', '*');
         res.send(await userService.GetDetailById(req.params.id));
+    }
+
+    async GetMeByToken(req, res) {
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        let token = req.body.token;
+        let id = (jwt.decode(token, AuthConfig.SecretKey).userId);
+        res.send(await userService.GetDetailById(id));
     }
 
     async EditById(req, res) {

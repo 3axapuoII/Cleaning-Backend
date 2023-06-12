@@ -29,7 +29,8 @@ class UserService {
         let userInfo = await userInfoRepository.GetByUserId(userId);
         //userInfo.userId = undefined; // Hide redundant parameter
 
-        return user;
+        //return user;
+        return {user: { username: userInfo.firstName, image: userInfo.avatar }};
     }
 
     async Register(user, userInfo) {
@@ -80,6 +81,7 @@ class UserService {
         };
 
         let token = jwt.encode(payload, AuthConfig.SecretKey);
+        console.log(detail.UserInfo.avatar);
         return {user: { token: token, username: detail.UserInfo.firstName, image: detail.UserInfo.avatar }};
         //return {user: { token: token, username: "abc", image: null }};
     

@@ -13,6 +13,15 @@ const cors = require("cors");
 
 router.use(cors());
 
+router.post(
+  "/me",
+  userController.GetMeByToken
+  /*
+    #swagger.tags = ['Users']
+    #swagger.security = [{ "bearerAuth": [] }]
+    */
+);
+
 router.use(isAuthorize);
 router.use(mongoLogger.LogHttpEvent);
 router.get(

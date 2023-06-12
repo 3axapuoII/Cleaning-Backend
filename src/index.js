@@ -17,5 +17,6 @@ const mongo = require('./mongo/Mongo');
 
 const loader = require('./loader');
 app.use(loader);
+app.use('/avatars', express.static('C:\\Users\\3axap1251\\Desktop\\images'));
 
 app.listen(5555, () => console.log('Server is started'));
