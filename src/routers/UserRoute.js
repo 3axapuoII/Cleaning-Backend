@@ -22,6 +22,17 @@ router.post(
     */
 );
 
+
+router.post(
+  "/edit",
+  userController.EditByToken
+  /*
+    #swagger.tags = ['Users']
+    #swagger.security = [{ "bearerAuth": [] }]
+    */
+);
+
+
 router.use(isAuthorize);
 router.use(mongoLogger.LogHttpEvent);
 router.get(
@@ -57,5 +68,7 @@ router.delete(
       #swagger.security = [{ "bearerAuth": [] }]
       */
 );
+
+
 
 module.exports = router;

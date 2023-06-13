@@ -19,6 +19,16 @@ class UserService {
         return await userRepository.GetAll();
     }
 
+    async GetById(userId) {
+        let user = await userRepository.GetById(userId);
+
+        if (!user) {
+            throw new NotFoundError("No such user");
+        }
+
+       return user;
+    }
+
     async GetDetailById(userId) {
         let user = await userRepository.GetById(userId);
 
@@ -81,7 +91,6 @@ class UserService {
         };
 
         let token = jwt.encode(payload, AuthConfig.SecretKey);
-        console.log(detail.UserInfo.avatar);
         return {user: { token: token, username: detail.UserInfo.firstName, image: detail.UserInfo.avatar }};
         //return {user: { token: token, username: "abc", image: null }};
     
