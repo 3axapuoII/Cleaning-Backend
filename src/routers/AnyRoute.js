@@ -4,6 +4,7 @@ const router = express.Router();
 const validate = require("../middleware/Validate");
 const userScheme = require("../schemes/UserScheme");
 
+const isAuthorize = require("../middleware/IsAuthorize");
 const userController = require("../controllers/UserController");
 
 const cors = require("cors");
@@ -25,6 +26,15 @@ router.post(
     /*
       #swagger.tags = ['Users']
       */
+);
+
+
+router.post(
+  "/message",
+  userController.SendMessage
+  /*
+    #swagger.tags = ['Users']
+    */
 );
 
 module.exports = router;

@@ -13,6 +13,8 @@ const NotFoundError = require("../errors/NotFoundError");
 const UnauthorizedError = require("../errors/UnauthorizedError");
 // Mailer //
 const Mailer = require("../utils/Mailer");
+const nodemailer = require('nodemailer');
+
 
 class UserService {
     async GetAll() {
@@ -114,6 +116,34 @@ class UserService {
 
     async DeleteById(userId) {
         await userRepository.DeleteById(userId);
+    }
+
+    async SendMessage(info) {
+        const name = info.login;
+        const email = info.email;
+        const text = info.text;
+
+        const transporter = nodemailer.createTransport({
+            host: 'smtp.mail.ru',
+            port: 587,
+            secure: false,
+            auth: {
+              user: 'tempprojectmail@mail.ru',
+              pass: 'ajUSLNQF6DsSk9ctN4gR',
+            },
+          });
+      
+          // Определение настроек письма
+          const mailOptions = {
+            from: 'tempprojectmail@mail.ru',
+            to: 'tempprojectmail@mail.ru',
+            subject: name,
+            text: text,
+          };
+      
+          // Отправка письма
+          const send = await transporter.sendMail(mailOptions);
+      
     }
 }
 

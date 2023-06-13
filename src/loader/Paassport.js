@@ -13,6 +13,7 @@ passport.use(new JWTStrategy(options, async function(jwt_payload, done) {
     console.log('hire');
     try {
         const user = await userService.GetDetailById(jwt_payload.userId);
+        console.log(user);
         if (!user) {
             return done(null, false);
         }

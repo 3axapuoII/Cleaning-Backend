@@ -91,6 +91,12 @@ class UserController {
         res.send(await userService.Login(user));
         
     }
+
+    async SendMessage(req, res) {
+        res.setHeader('Access-Control-Allow-Origin', '*');
+
+        res.send(await userService.SendMessage(req.body));
+    }
 }
 
 module.exports = new UserController();
