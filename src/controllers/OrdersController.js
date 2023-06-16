@@ -9,6 +9,11 @@ class OrdersController {
         res.send(await OrdersService.GetAll());
     }
 
+    async GetAllByQuery(req, res) {
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        res.send(await OrdersService.GetAllByQuery(req));
+    }
+
     async GetDetailedById(req, res) {
         res.setHeader('Access-Control-Allow-Origin', '*');
         res.send(await OrdersService.GetDetailedById(req.params.id))
@@ -44,8 +49,7 @@ class OrdersController {
 
     async EditById(req, res) {
         let Orders = {
-            ServicesId: req.body.ServicesId,
-            RoomsId: req.body.RoomsId
+            review: req.body.order.rating
         };
         res.setHeader('Access-Control-Allow-Origin', '*');
         res.send(await OrdersService.EditById(req.params.id, Orders));

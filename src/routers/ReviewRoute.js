@@ -11,7 +11,7 @@ const mongoLogger = require("../utils/MongoLogger");
 const cors = require("cors");
 
 router.use(cors());
-router.use(isAuthorize);
+//router.use(isAuthorize);
 router.use(mongoLogger.LogHttpEvent);
 router.get(
     "/",
@@ -31,7 +31,7 @@ router.get(
 );
 router.post(
     "/",
-    validate(reviewScheme.create),
+    //validate(reviewScheme.create),
     reviewController.Create
     /*
       #swagger.tags = ['Reviews']

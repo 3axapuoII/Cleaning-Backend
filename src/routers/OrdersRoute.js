@@ -18,6 +18,14 @@ router.get('/', OrdersController.GetAll
     #swagger.tags = ['Orders']
     #swagger.security = [{ "bearerAuth": [] }]
     */);
+
+    router.post('/all', OrdersController.GetAllByQuery
+    /*
+    #swagger.tags = ['Orders']
+    #swagger.security = [{ "bearerAuth": [] }]
+    */);
+
+
 router.get('/:id', OrdersController.GetDetailedById
     /*
     #swagger.tags = ['Orders']
@@ -29,7 +37,8 @@ router.post('/', /*validate(OrdersScheme.create),*/
     #swagger.tags = ['Orders']
     #swagger.security = [{ "bearerAuth": [] }]
     */);
-router.patch('/:id', validate(OrdersScheme.edit), OrdersController.EditById
+router.post('/:id', /*validate(OrdersScheme.edit),*/
+     OrdersController.EditById
     /*
     #swagger.tags = ['Orders']
     #swagger.security = [{ "bearerAuth": [] }]

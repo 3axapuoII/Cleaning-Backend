@@ -6,6 +6,10 @@ class OrdersService {
         return await OrdersRepository.GetAll();
     }
 
+    async GetAllByQuery(req) {
+        return await OrdersRepository.GetAllByQuery(req);
+    }
+
     async GetDetailedById(OrdersId) {
         return await OrdersRepository.GetDetailedById(OrdersId);
     }

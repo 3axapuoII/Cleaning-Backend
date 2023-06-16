@@ -8,7 +8,6 @@ const CleaningJob = sequelize.define('Services', {
     name: {type: DataTypes.STRING, unique: true, allowNull: false},
     price: {type: DataTypes.DOUBLE, allowNull:false},
     description: {type: DataTypes.STRING,allowNull: false},
-    squere: {type: DataTypes.INTEGER},
 });
 
 module.exports = CleaningJob;

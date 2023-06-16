@@ -22,11 +22,11 @@ const Review = sequelize.define("reviews", {
         unique: false,
         field: "ServiceId",
     },
-    date: {
-        type: Sequelize.DATE,
+    userId: {
+        type: Sequelize.INTEGER,
         allowNull: false,
         unique: false,
-        field: "createdAt",
+        field: "userId",
     },
 });
 
