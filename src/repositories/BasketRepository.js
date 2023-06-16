@@ -1,4 +1,4 @@
-const User = require('../models/User');
+const Service = require('../models/CleaningJob');
 const Order = require('../models/Orders');
 const Basket = require('../models/Basket');
 
@@ -10,15 +10,15 @@ class BasketRepository {
 
     async GetDetailedById(BasketId) {
         return await Basket.findOne({
-            include: [User, Order],
+            include: [Service, Order],
             where: {
                 id: BasketId
             }
         });
     }
 
-    async Create(Basket) {
-        return Basket.create(Basket);
+    async Create(basket) {
+        return Basket.create(basket);
     }
 
     async EditById(basketId, Basket) {

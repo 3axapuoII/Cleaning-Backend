@@ -6,10 +6,10 @@ class BasketService {
     }
 
     async GetDetailedById(basketId) {
-        return await  BasketRepository.GetDetailedById(basket);
+        return await  BasketRepository.GetDetailedById(basketId);
     }
 
-    async Create(basketId) {
+    async Create(basket) {
         return await  BasketRepository.Create(basket);
     }
 

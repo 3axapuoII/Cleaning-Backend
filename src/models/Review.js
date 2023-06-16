@@ -16,17 +16,17 @@ const Review = sequelize.define("reviews", {
         unique: false,
         field: "comment",
     },
-    rate: {
+    serviceId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         unique: false,
-        field: "rate",
+        field: "ServiceId",
     },
     date: {
         type: Sequelize.DATE,
         allowNull: false,
         unique: false,
-        field: "date",
+        field: "createdAt",
     },
 });
 

@@ -16,8 +16,8 @@ class OrdersRepository {
         });
     }
 
-    async Create(Orders) {
-        return Orders.create(Orders); // await redundant because is async method and create also async method
+    async Create(orders) {
+        return Orders.create(orders); // await redundant because is async method and create also async method
     }
 
     async EditById(OrdersId, Orders) {

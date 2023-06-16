@@ -11,9 +11,9 @@ class OrdersService {
     }
 
     async Create(Orders) {
-        if (await OrdersRepository.GetOneByQuery(Orders)) {
+        /*if (await OrdersRepository.GetOneByQuery(Orders)) {
             throw new BadRequestError('Orders already exists');
-        }
+        }*/
 
         return await OrdersRepository.Create(Orders);
     }

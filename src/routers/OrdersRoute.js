@@ -11,7 +11,7 @@ const mongoLogger = require("../utils/MongoLogger");
 const cors = require("cors");
 
 router.use(cors());
-router.use(isAuthorize);
+//router.use(isAuthorize);
 router.use(mongoLogger.LogHttpEvent);
 router.get('/', OrdersController.GetAll
     /*
@@ -23,7 +23,8 @@ router.get('/:id', OrdersController.GetDetailedById
     #swagger.tags = ['Orders']
     #swagger.security = [{ "bearerAuth": [] }]
     */);
-router.post('/', validate(OrdersScheme.create), OrdersController.Create
+router.post('/', /*validate(OrdersScheme.create),*/
+     OrdersController.Create
     /*
     #swagger.tags = ['Orders']
     #swagger.security = [{ "bearerAuth": [] }]
