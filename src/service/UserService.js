@@ -42,7 +42,7 @@ class UserService {
         //userInfo.userId = undefined; // Hide redundant parameter
 
         //return user;
-        return {user: { username: userInfo.firstName, image: userInfo.avatar }};
+        return {user: { username: userInfo.firstName, image: userInfo.avatar, userId: userId }};
     }
 
     async Register(user, userInfo) {

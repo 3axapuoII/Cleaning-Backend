@@ -21,6 +21,7 @@ router.get(
       #swagger.security = [{ "bearerAuth": [] }]
       */
 );
+
 router.get(
     "/:id",
     reviewController.GetDetailedById
@@ -29,6 +30,7 @@ router.get(
       #swagger.security = [{ "bearerAuth": [] }]
       */
 );
+
 router.post(
     "/",
     //validate(reviewScheme.create),
@@ -38,9 +40,9 @@ router.post(
       #swagger.security = [{ "bearerAuth": [] }]
       */
 );
-router.patch(
+router.post(
     "/:id",
-    validate(reviewScheme.edit),
+    /*validate(reviewScheme.edit),*/
     reviewController.EditById
     /*
       #swagger.tags = ['Reviews']

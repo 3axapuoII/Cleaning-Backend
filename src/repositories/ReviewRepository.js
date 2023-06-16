@@ -1,14 +1,23 @@
 const Review = require("../models/Review");
+const jwt = require("jwt-simple");
+const AuthConfig = require("../config/AuthConfig.json");
 
 class ReviewRepository {
     async GetAll() {
         return await Review.findAll();
     }
 
-    async GetDetailedById(reviewId) {
-        return await Review.findOne({
+    async GetDetailedById(serviceId) {
+
+        /*console.log(await Review.findAll({
             where: {
-                id: reviewId,
+                ServiceId: serviceId,
+            },
+        }));*/
+
+        return await Review.findAll({
+            where: {
+                ServiceId: serviceId,
             },
         });
     }

@@ -28,9 +28,7 @@ class ReviewController {
 
     async EditById(req, res) {
         let review = {
-            comment: req.body.comment,
-            rate: req.body.rate,
-            date: req.body.date,
+            comment: req.body.text,
         };
         res.setHeader('Access-Control-Allow-Origin', '*');
         res.send(await reviewService.EditById(req.params.id, review));

@@ -33,7 +33,7 @@ router.post(
 );
 
 
-router.use(isAuthorize);
+//router.use(isAuthorize);
 router.use(mongoLogger.LogHttpEvent);
 router.get(
     "/",

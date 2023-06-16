@@ -5,8 +5,8 @@ class ReviewService {
         return await reviewsRepository.GetAll();
     }
 
-    async GetDetailedById(reviewId) {
-        return await reviewsRepository.GetDetailedById(reviewId);
+    async GetDetailedById(serviceId ) {
+        return await reviewsRepository.GetDetailedById(serviceId);
     }
 
     async CreateOne(review) {
